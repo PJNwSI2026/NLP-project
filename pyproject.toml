@@ -1,0 +1,20 @@
+[project]
+name = "czech-nlp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Jakub Bialek", email = "jbialek@student.agh.edu.pl" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "datasets>=5.1.0",
+    "pandas>=3.0.6",
+]
+
+[project.scripts]
+czech-nlp = "czech_nlp:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"

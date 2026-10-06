@@ -2,7 +2,7 @@
 __pycache__/
 *.py[codz]
 *$py.class
-
+czech_modern_150k.txt
 # C extensions
 *.so
 
