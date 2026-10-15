@@ -1,18 +1,39 @@
 import re
 
-with open("czech_modern_150k.txt", "r", encoding="utf-8") as f:
-    text = f.read()
 
-clean_text = text.lower()
-# Remove every number
-clean_text = re.sub(r'\d+', ' ', clean_text)
+def clean_czech_text(input_filepath, output_filepath):
+    czech_alphabet = set("aábcčdďeéěfghchiíjklmnňoópqrřsštťuúůvwxyýzž")
 
-# Remove everything that isn't whitespace or czech letter
-clean_text = re.sub(r'[^\w\s]|_', ' ', clean_text, flags=re.UNICODE)
+    with open(input_filepath, "r", encoding="utf-8") as file:
+        text = file.read()
 
-# Change every whitespace to space
-clean_text = re.sub(r'\s+', ' ', clean_text).strip()
+    text = re.sub(r"\s+", " ", text)
+    text = re.sub(r"[^\w\s]", "", text)
+    text = text.replace("-", "")
 
-# Save the clean text
-with open("czech_modern_150k_clean.txt", "w", encoding="utf-8") as f:
-    f.write(clean_text)
+    words = text.split()
+
+    cleaned_words = []
+    for word in words:
+        if any(char.isdigit() for char in word):
+            continue
+
+        if not all(char in czech_alphabet for char in word):
+            continue
+
+        cleaned_words.append(word)
+
+    final_text = " ".join(cleaned_words)
+
+    with open(output_filepath, "w", encoding="utf-8") as file:
+        file.write(final_text)
+
+
+def main() -> None:
+    input_file = "czech_modern_150k.txt"
+    output_file = "czech_modern_150k_clean.txt"
+    clean_czech_text(input_file, output_file)
+
+
+if __name__ == "__main__":
+    main()

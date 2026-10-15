@@ -27,5 +27,3 @@ for item in ds:
 
 with open("czech_modern_150k.txt", "w", encoding="utf-8") as f:
     f.write("\n\n".join(collected_text))
-
-
