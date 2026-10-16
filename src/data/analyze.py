@@ -84,7 +84,7 @@ def analyze_czech_text(filepath):
 
 
 def main():
-    input_file = "czech_modern_150k_clean.txt"
+    input_file = r"src/data/czech_modern_150k_clean.txt"
     analyze_czech_text(input_file)
 
 if __name__ == "__main__":
