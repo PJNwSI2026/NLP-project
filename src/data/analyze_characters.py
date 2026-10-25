@@ -41,7 +41,7 @@ def generate_huffman_codes(node, current_code, codes):
     generate_huffman_codes(node.right, current_code + "1", codes)
 
 
-def analyze_czech_text(filepath):
+def analyze_characters(filepath):
     with open(filepath, "r", encoding="utf-8") as f:
         text = f.read()
 
@@ -84,8 +84,8 @@ def analyze_czech_text(filepath):
 
 
 def main():
-    input_file = r"src/data/czech_modern_150k_clean.txt"
-    analyze_czech_text(input_file)
+    input_file = r"czech_modern_150k_clean.txt"
+    analyze_characters(input_file)
 
 if __name__ == "__main__":
     main()
