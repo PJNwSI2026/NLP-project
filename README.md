@@ -1,62 +1,71 @@
-# NLP University Project
+# Projekt NLP - analiza języka naturalnego
 
-Projekt z przetwarzania języka naturalnego (NLP) — dr inż. Mirosław Gajer.
+Projekt z przetwarzania języka naturalnego przedstawia trzy uzupełniające się sposoby badania języka: analizę statystyczną korpusu czeskiego, generator struktur składniowych języka angielskiego oraz analizę semantyczną angielskich rzeczowników. Każda część ma własne moduły w [`src/`](src/) i katalog wyników w [`results/`](results/). Korpus używany w analizie statystycznej znajduje się w [`data/`](data/).
 
-Projekt realizowany przy użyciu środowiska **Python 3.14** i menedżera pakietów **uv**.
+Projekt jest przygotowany dla **Pythona 3.14** i menedżera pakietów **uv**. Dokumentacja każdego obszaru opisuje jego pliki, zależności i wyniki; poniższe sekcje prowadzą bezpośrednio do kodu, danych i wygenerowanych materiałów.
 
----
+## Trzy aspekty analizy
 
-## Struktura projektu
+### 1. Analiza statystyczna języka czeskiego
 
-- `src/data/` oraz `src/czech_nlp/` — **Część 1: Analiza statystyczna języka** (język czeski: korpus 150k słów, prawo Zipfa, rdzeń języka, słowa pokrywające 90% tekstu).
-- `src/syntactic/` — **Część 2: Analiza syntaktyczna języka** (język angielski: generator zdań prostych typu SVO, 12 czasów, 5 trybów, strona czynna/bierna, czasowniki przechodnie, nieprzechodnie i zwrotne, interfejs graficzny GUI).
-- `tests/` — Testy jednostkowe (`pytest`).
-- `results/` — Wygenerowane raporty i zestawienia tabelaryczne do sprawozdania.
+Analiza pracuje na korpusie tekstowym: pobiera i oczyszcza tekst, a następnie bada częstość słów i znaków.
 
----
+- **Dane wejściowe:** [`data/czech_modern_200k.txt`](data/czech_modern_200k.txt) - korpus źródłowy oraz [`data/czech_modern_200k_clean.txt`](data/czech_modern_200k_clean.txt) - wersja oczyszczona. Opis obu plików znajduje się w [`data/README.md`](data/README.md).
+- **Kod:** [`src/statistical_analysis/`](src/statistical_analysis/) - [`download.py`](src/statistical_analysis/download.py) pobiera korpus, [`clean.py`](src/statistical_analysis/clean.py) czyści go, [`analyze_words.py`](src/statistical_analysis/analyze_words.py) analizuje słowa, a [`analyze_characters.py`](src/statistical_analysis/analyze_characters.py) wyznacza statystyki znaków i kodowanie Huffmana. Szczegóły: [`src/statistical_analysis/README.md`](src/statistical_analysis/README.md).
+- **Wyniki:** [`results/statistical_results/`](results/statistical_results/) - [`prawo_zipfa.png`](results/statistical_results/prawo_zipfa.png), [`words_90.csv`](results/statistical_results/words_90.csv), [`core_100.csv`](results/statistical_results/core_100.csv), [`character_analysis.csv`](results/statistical_results/character_analysis.csv) oraz [`entropy.txt`](results/statistical_results/entropy.txt). Opisy i formaty plików: [`results/statistical_results/README.md`](results/statistical_results/README.md).
 
-## Część 2: Analiza syntaktyczna (Generator zdań SVO)
+### 2. Analiza syntaktyczna języka angielskiego
 
-Moduł syntaktyczny w pełni implementuje wymagania projektowe dla języka angielskiego:
-- **Baza leksykalna:**
-  - 135 rzeczowników (l. pojedyncza, mnoga, policzalność, rodzaj gramatyczny),
-  - 110 czasowników (przechodnie SVO, nieprzechodnie SV, zwrotne z zaimkami zwrotnymi),
-  - 117 przymiotników,
-  - Zaimki osobowe (mianownik, dopełnienie, formy zwrotne),
-  - 19 określników (rodzajniki określone, nieokreślone `a`/`an`, dzierżawcze, wskazujące, kwantyfikatory).
-- **Czasy gramatyczne:** wszystkie 12 czasów języka angielskiego (Simple, Continuous, Perfect, Perfect Continuous dla Present, Past i Future).
-- **Tryby:** oznajmujący (*indicative*), pytający (*interrogative*), przeczący (*negative*), rozkazujący (*imperative*), przypuszczający (*conditional*).
-- **Strony:** czynna (*active*) oraz bierna (*passive*).
-- **Drzewa składniowe:** generowanie konstytuentowych drzew rozbioru syntaktycznego dla każdego zdania.
+Generator tworzy losowe zdania i wykorzystuje leksykon oraz reguły odmiany dla czasów, trybów i strony czynnej lub biernej. Obsługuje czasowniki przechodnie, nieprzechodnie i zwrotne.
 
----
+- **Kod:** [`src/syntactic_analysis/`](src/syntactic_analysis/) - [`lexicon.py`](src/syntactic_analysis/lexicon.py) zawiera jednostki leksykalne, [`grammar.py`](src/syntactic_analysis/grammar.py) opisuje czasy, tryby, frazy i odmianę, [`generator.py`](src/syntactic_analysis/generator.py) buduje zdania, a [`main.py`](src/syntactic_analysis/main.py) przygotowuje podsumowanie i próbkę zdań. Szczegóły: [`src/syntactic_analysis/README.md`](src/syntactic_analysis/README.md).
+- **Wyniki:** [`results/syntactic_results/`](results/syntactic_results/) zawiera [`syntactic_analysis.txt`](results/syntactic_results/syntactic_analysis.txt) z podsumowaniem leksykonu i przykładami wygenerowanych zdań. Opis wyniku i jego powiązań z kodem: [`results/syntactic_results/README.md`](results/syntactic_results/README.md).
 
-## Uruchamianie
+### 3. Analiza semantyczna
 
-### 1. Interfejs graficzny (GUI)
-Uruchamia okienkową aplikację desktopową (Tkinter/ttk) umożliwiającą sterowanie wszystkimi parametrami gramatycznymi, podgląd drzew syntaktycznych, kopiowanie do schowka oraz eksport do Markdown:
+Analiza reprezentuje rzeczowniki jako wektory powiązań z czasownikami przechodnimi i grupuje je za pomocą samoorganizującej się mapy Kohonena (SOM). Raport podsumowuje neurony, przypisane do nich rzeczowniki i czystość klastrów.
+
+- **Kod:** [`src/semantic_analysis/`](src/semantic_analysis/) - [`vocabulary.py`](src/semantic_analysis/vocabulary.py) zawiera rzeczowniki, kategorie i czasowniki, a [`main.py`](src/semantic_analysis/main.py) buduje wektory, trenuje SOM i tworzy raport. Opis implementacji: [`src/semantic_analysis/README.md`](src/semantic_analysis/README.md).
+- **Wynik:** [`results/semantic_results/semantic_analysis.txt`](results/semantic_results/semantic_analysis.txt). Opis zawartości i interpretacji: [`results/semantic_results/README.md`](results/semantic_results/README.md).
+
+## Uruchamianie analiz
+
+Uruchamiaj każdy skrypt z jego katalogu, ponieważ moduły używają lokalnych importów i względnych ścieżek do danych lub wyników.
+
+Przygotowanie korpusu i uruchomienie analizy statystycznej:
+
 ```bash
-uv run syntactic-gui
-```
-lub:
-```bash
-uv run python -m src.syntactic.gui
-```
-
-### 2. Przykłady w konsoli (CLI)
-Wygenerowanie N losowych zdań wraz ze szczegółowym rozbiorem:
-```bash
-uv run syntactic --count 5
+cd src/statistical_analysis
+uv run python download.py
+uv run python clean.py
+uv run python analyze_words.py
+uv run python analyze_characters.py
 ```
 
-### 3. Generowanie pełnego raportu ze wszystkimi matrycami
-Generuje plik `results/syntactic/syntactic_report.md` zawierający zestawienie wszystkich 12 czasów (strona czynna vs bierna), wszystkich trybów, czasowników zwrotnych, nieprzechodnich i przykładowych drzew rozbioru do sprawozdania PDF:
+Wygenerowanie próbki zdań:
+
 ```bash
-uv run syntactic --generate-report
+cd src/syntactic_analysis
+uv run python main.py
 ```
 
-### 4. Uruchomienie testów jednostkowych
-Uruchomienie kompletnego zestawu 44 testów automatycznych:
+Uruchomienie analizy semantycznej:
+
 ```bash
-uv run pytest
+cd src/semantic_analysis
+uv run python main.py
 ```
+
+Pobieranie korpusu wymaga dostępu do zbioru `PleIAs/Czech-PD` i może wymagać pobrania zależności. Skrypty nadpisują pliki wynikowe o tych samych nazwach w odpowiednich katalogach `results/`.
+
+## Mapa repozytorium
+
+| Katalog | Zawartość | Dokumentacja |
+|---|---|---|
+| [`data/`](data/) | Czeski korpus źródłowy i jego oczyszczona wersja. | [`data/README.md`](data/README.md) |
+| [`src/statistical_analysis/`](src/statistical_analysis/) | Pobieranie, czyszczenie i analiza statystyczna korpusu. | [`README.md`](src/statistical_analysis/README.md) |
+| [`src/syntactic_analysis/`](src/syntactic_analysis/) | Leksykon, reguły gramatyczne i generator zdań SVO. | [`README.md`](src/syntactic_analysis/README.md) |
+| [`src/semantic_analysis/`](src/semantic_analysis/) | Leksykon semantyczny oraz implementacja SOM. | [`README.md`](src/semantic_analysis/README.md) |
+| [`results/statistical_results/`](results/statistical_results/) | Tabele, wykres i podsumowanie analizy statystycznej. | [`README.md`](results/statistical_results/README.md) |
+| [`results/syntactic_results/`](results/syntactic_results/) | Podsumowanie i przykładowe zdania generatora. | [`README.md`](results/syntactic_results/README.md) |
+| [`results/semantic_results/`](results/semantic_results/) | Raport z klastrów mapy semantycznej. | [`README.md`](results/semantic_results/README.md) |

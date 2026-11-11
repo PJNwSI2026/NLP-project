@@ -1,0 +1,99 @@
+ANALIZA SEMANTYCZNA
+
+Przeanalizowano 1046 rzeczowników na podstawie wektorów ze 100 czasownikami.
+Liczba martwych neuronów (które niczego się nie nauczyły): 20 / 50
+Zidentyfikowane pola semantyczne: 10
+Globalna czystość semantyczna klastrów: 100.0%
+
+Wniosek: Rzeczowniki SAMORZUTNIE łączą się w logicznie uzasadnione jednorodne pola semantyczne.
+
+ZAWARTOŚĆ KLASTRÓW
+neuron (0,3) | n=33 | pole: food_drink (czystość: 100.0%)
+   rzeczowniki: apple, banana, pear, strawberry, pineapple, kiwi, blackberry, toast, biscuit, pie...
+
+neuron (1,3) | n=25 | pole: food_drink (czystość: 100.0%)
+   rzeczowniki: orange, cherry, blueberry, apricot, cranberry, cookie, bacon, sausage, fish, potato...
+
+neuron (1,4) | n=22 | pole: food_drink (czystość: 100.0%)
+   rzeczowniki: peach, grape, lemon, watermelon, fig, date, grapefruit, bagel, cream, yogurt...
+
+neuron (0,4) | n=26 | pole: food_drink (czystość: 100.0%)
+   rzeczowniki: lime, berry, melon, mango, plum, pomegranate, croissant, muffin, waffle, rice...
+
+neuron (2,4) | n=19 | pole: food_drink (czystość: 100.0%)
+   rzeczowniki: raspberry, avocado, coconut, papaya, bread, sandwich, pasta, noodle, soup, curry...
+
+neuron (2,3) | n=2 | pole: food_drink (czystość: 100.0%)
+   rzeczowniki: cake, whiskey...
+
+neuron (4,0) | n=48 | pole: animal (czystość: 100.0%)
+   rzeczowniki: chicken, turkey, duck, horse, pony, donkey, cow, piglet, chicken, hen...
+
+neuron (3,0) | n=59 | pole: animal (czystość: 100.0%)
+   rzeczowniki: dog, puppy, cat, kitten, mule, bull, calf, sheep, lamb, goat...
+
+neuron (0,9) | n=103 | pole: tool_device (czystość: 100.0%)
+   rzeczowniki: mouse, plane, hammer, mallet, screwdriver, wrench, spanner, pliers, pincers, chisel...
+
+neuron (2,9) | n=81 | pole: vehicle (czystość: 100.0%)
+   rzeczowniki: car, automobile, truck, van, bus, minibus, lorry, taxi, ambulance, firetruck...
+
+neuron (1,9) | n=1 | pole: vehicle (czystość: 100.0%)
+   rzeczowniki: cab...
+
+neuron (2,8) | n=5 | pole: vehicle (czystość: 100.0%)
+   rzeczowniki: tractor, skateboard, rowboat, steamer, jeep...
+
+neuron (0,6) | n=44 | pole: clothing (czystość: 100.0%)
+   rzeczowniki: shirt, tshirt, sweater, cardigan, hoodie, jacket, coat, parka, blazer, suit...
+
+neuron (0,7) | n=46 | pole: clothing (czystość: 100.0%)
+   rzeczowniki: blouse, pullover, overcoat, raincoat, trenchcoat, vest, dress, trousers, leggings, tights...
+
+neuron (4,5) | n=41 | pole: document_media_concept (czystość: 100.0%)
+   rzeczowniki: file, book, dictionary, encyclopedia, essay, report, letter, treaty, bill, map...
+
+neuron (2,7) | n=44 | pole: furniture_household (czystość: 100.0%)
+   rzeczowniki: knife, lantern, clock, table, chair, stool, bench, bed, pillow, sheet...
+
+neuron (4,9) | n=47 | pole: building_place (czystość: 100.0%)
+   rzeczowniki: house, castle, tower, building, hotel, motel, inn, hostel, hospital, clinic...
+
+neuron (4,8) | n=42 | pole: building_place (czystość: 100.0%)
+   rzeczowniki: cottage, mansion, villa, palace, fortress, skyscraper, apartment, school, university, academy...
+
+neuron (1,0) | n=32 | pole: person_role (czystość: 100.0%)
+   rzeczowniki: butcher, boy, sister, friend, neighbor, dentist, engineer, programmer, carpenter, plumber...
+
+neuron (2,6) | n=49 | pole: furniture_household (czystość: 100.0%)
+   rzeczowniki: desk, armchair, sofa, couch, mattress, cushion, blanket, wardrobe, cabinet, shelf...
+
+neuron (0,1) | n=30 | pole: person_role (czystość: 100.0%)
+   rzeczowniki: man, infant, teenager, adult, father, daughter, brother, cousin, wife, teacher...
+
+neuron (2,1) | n=1 | pole: person_role (czystość: 100.0%)
+   rzeczowniki: woman...
+
+neuron (0,0) | n=38 | pole: person_role (czystość: 100.0%)
+   rzeczowniki: girl, child, toddler, parent, mother, son, grandmother, uncle, aunt, nephew...
+
+neuron (1,1) | n=29 | pole: person_role (czystość: 100.0%)
+   rzeczowniki: baby, grandfather, niece, professor, student, scientist, researcher, physician, surgeon, nurse...
+
+neuron (4,2) | n=56 | pole: nature_plant (czystość: 100.0%)
+   rzeczowniki: tree, oak, birch, maple, palm, cedar, forest, bush, shrub, hedge...
+
+neuron (3,3) | n=11 | pole: nature_plant (czystość: 100.0%)
+   rzeczowniki: pine, willow, orchid, bark, sprout, stem, thorn, pond, swamp, mist...
+
+neuron (3,2) | n=41 | pole: nature_plant (czystość: 100.0%)
+   rzeczowniki: wood, jungle, lily, seed, bud, petal, pollen, mountain, volcano, crater...
+
+neuron (2,2) | n=1 | pole: nature_plant (czystość: 100.0%)
+   rzeczowniki: branch...
+
+neuron (4,6) | n=33 | pole: document_media_concept (czystość: 100.0%)
+   rzeczowniki: novel, textbook, article, paper, document, manuscript, note, telegram, envelope, contract...
+
+neuron (4,4) | n=37 | pole: document_media_concept (czystość: 100.0%)
+   rzeczowniki: magazine, journal, newspaper, postcard, stamp, invoice, receipt, chart, blueprint, painting...

@@ -1,0 +1,5 @@
+Entropia (H): 4.7256 bitów/znak
+
+Średnia długość kodu (L): 4.7562 bitów/znak
+
+Efektywność kodowania (H/L): 99.36%

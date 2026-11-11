@@ -1,0 +1,60 @@
+ANALIZA SYNTAKTYCZNA JĘZYKA NATURALNEGO (GENERATOR SVO)
+
+WYMOGI LEKSYKALNE PROJEKTU
+- rzeczowniki: 110
+- czasowniki: 100 - przechodnie SVO (80), nieprzechodnie SV (12), zwrotne (8)
+- przymiotniki: 117
+- zaimki: 7
+- określniki: 6
+
+PRÓBKA WYGENEROWANYCH ZDAŃ
+1. Be forgotten by these libraries!
+2. The rough wolves would rescue us.
+3. This milk was being protected by it.
+4. Will the polite horses cure her?
+5. This monkey has been supported by this quiet eagle.
+6. We destroy some swords.
+7. Does a fresh man express itself?
+8. They had not found it.
+9. This rabbit would be written by us.
+10. This precious sandwich was being caught by it.
+11. Are my brave oceans forgetting her?
+12. My milk will be adapting itself.
+13. Do these bottles smile?
+14. Lend a wild island!
+15. He has been calculating her.
+16. A thick hammer has been delivered by some cheese.
+17. I fell.
+18. Be fed by some plastic horses!
+19. She would be held by some generous street.
+20. Be rescued by some huge farmers!
+21. This ancient farmer is priding itself.
+22. Some new telescopes were greeted by the lamps.
+23. Be carried by some smooth street!
+24. Be loved by the wet pencils!
+25. Have they been smiling?
+26. My bad guitars will not be being calculated by my students.
+27. Destroy us!
+28. Has a soldier been protected by the dirty soup?
+29. Some tall bells will not have unlocked this calm doctor.
+30. Did these motorcycles carry some men?
+31. Has some egg been poured by you?
+32. It was being pulled by these glass lakes.
+33. Will a crispy lake be being lifted by the quick letter?
+34. The dark rivers had been unlocked by this patient fox.
+35. Be greeted by cheese!
+36. My singer hesitated.
+37. My brave mirror had been invited by some powerful lake.
+38. Will my stone cars steal my bitter bakers?
+39. Cry!
+40. These clever telescopes had been pulling my cheese.
+41. Be led by it!
+42. Do we borrow it?
+43. Teach the keys!
+44. He will not be hating the valuable radio.
+45. My rabbit was painted by this bicycle.
+46. Some writers would pull you.
+47. These wet students will have been being bought by it.
+48. My artist will not have read my owls.
+49. He had been being fired by my proud sword.
+50. She would defend herself.
